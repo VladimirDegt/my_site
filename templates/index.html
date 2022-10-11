@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+{{ super() }}
+<body class="fon_index">
+    <p class="blocks_menu">
+        {% block mainmenu %}
+            {% for i in menu %}
+                <a href="{{ i.url }}"> {{ i.name }}</a> &nbsp&nbsp
+            {% endfor %}
+        {% endblock mainmenu %}
+    </p>
+</body>
+{% endblock content %}
