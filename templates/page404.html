@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+{{ super() }}
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link type="text/css" href="{{ url_for('static', filename='css/style_page_404.css')}}" rel="stylesheet"/>
+</head>
+<body class="fon_404">
+<p class="font"> К сожалению такой страницы в нашем мире не существует, а Астрал не доступен ( <br>
+    Давайте вернемся на <a href="{{ url_for('index') }}">главную</a> страницу!
+</p>
+</body>
+{% endblock content %}

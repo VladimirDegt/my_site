@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+{{ super() }}
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+<!--    подключение стилей-->
+    <link type="text/css" href="{{ url_for('static', filename='css/style_contact.css')}}" rel="stylesheet"/>
+</head>
+{% for msg in get_flashed_messages() %} <!--мгновенные сообщение об отправке-->
+<div class="flash">{{ msg }}</div>
+{% endfor %}
+<form action="/login" method="post">
+        <main>
+        <div class="register-form-container">
+            <div class="form-fields">
+                <div class="form-field">
+                    <input type="text" placeholder="Имя" name="username" value="" required/>
+                </div>
+                <div class="form-field">
+                    <input type="email"  placeholder="Email" name="email" value="" required/>
+                </div>
+                <div class="form-field">
+                    <input type="password"  placeholder="Пароль" name="password" value="" required/>
+                </div>
+            </div>
+                <div class="form-buttons">
+                    <button class="button" type="submit">Вход</button>
+                </div>
+
+            </div>
+        </main>
+</form>
+{% endblock content %}

@@ -2,6 +2,12 @@
 
 {% block content %}
 {{ super() }}
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+<!--    подключение стилей-->
+    <link type="text/css" href="{{ url_for('static', filename='css/style_index.css')}}" rel="stylesheet"/>
+</head>
 <body class="fon_index">
     <p class="blocks_menu">
         {% block mainmenu %}
@@ -10,5 +16,9 @@
             {% endfor %}
         {% endblock mainmenu %}
     </p>
+    <p>
+        Число просмотров: {{ count }}
+    </p>
+
 </body>
 {% endblock content %}

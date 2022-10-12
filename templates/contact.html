@@ -2,8 +2,15 @@
 
 {% block content %}
 {{ super() }}
-{% for msg in get_flashed_messages() %} <!--мгновенные сообщение об отправке-->
-<div class="flash">{{ msg }}</div>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+<!--    подключение стилей-->
+    <link type="text/css" href="{{ url_for('static', filename='css/style_contact.css')}}" rel="stylesheet"/>
+</head>
+{% for cat, msg in get_flashed_messages(True) %} <!--мгновенные сообщение об отправке-->
+<!--True указывает что вывод в таком порядке: cat, msg -->
+<div class="flash {{ cat }}">{{ msg }}</div>
 {% endfor %}
 <body class="fon_contact">
 <form action="/contact" method="post" >
@@ -13,7 +20,7 @@
             <h1 class="form-title">
                 Привет! <br>Напишите мне и я Вам отвечу как можно скорее
             </h1>
-            <div class="form-fields">
+            <div>
                 <div class="form-field">
                     <input type="text" placeholder="Имя" name="username" value="" required/>
                 </div>
@@ -25,7 +32,8 @@
                 </div>
             </div>
                 <div class="form-buttons">
-                    <button class="button">Отправить</button>
+                    <button class="button" type="submit">Отправить</button>
+                    <button class="button" type="reset">Сбросить</button>
                 </div>
 
         </div>
